@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package PbStatus;
+option go_package = ".";
+
+service SvcStatus {
+    rpc SendStatus(PbStatus) returns (PbResp) {}
+    rpc SendStatuses(PbStatuses) returns (PbResp) {}
+}
+
+message PbStatus {
+    string statu     =1;     
+	string local_address  =2;
+	string local_port     =3;
+	string remote_address =4;
+	string remote_port    =5;
+}
+
+message PbStatuses {
+    repeated   PbStatus  statuses = 1;
+}
+
+message PbResp {
+
+}

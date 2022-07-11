@@ -1,0 +1,90 @@
+ss -atn
+
+State                      Recv-Q                 Send-Q                                 Local Address:Port                                      Peer Address:Port                 Process                 
+LISTEN                     0                      4096                                   127.0.0.53%lo:53                                             0.0.0.0:*                                            
+LISTEN                     0                      128                                        127.0.0.1:631                                            0.0.0.0:*                                            
+ESTAB                      0                      0                                       192.168.1.54:60488                                     2.17.237.156:443                                          
+ESTAB                      0                      0                                       192.168.1.54:52272                                     34.210.39.83:443                                          
+CLOSE-WAIT                 1                      0                                       192.168.1.54:32834                                   51.144.164.215:443                                          
+ESTAB                      0                      0                                       192.168.1.54:59248                                     52.84.115.31:443                                          
+ESTAB                      0                      0                                       192.168.1.54:48484                                   185.64.189.112:443                                          
+ESTAB                      0                      0                                       192.168.1.54:47096                                    140.82.114.25:443                                          
+ESTAB                      0                      0                                       192.168.1.54:60482                                     2.17.237.156:443                                          
+ESTAB                      0                      0                                       192.168.1.54:60356                                   34.117.237.239:443                                          
+LISTEN                     0                      128                                            [::1]:631                                               [::]:*                                            
+
+ netstat -ano -p tcp
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       1072
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:902            0.0.0.0:0              LISTENING       5268
+  TCP    0.0.0.0:912            0.0.0.0:0              LISTENING       5268
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       8208
+  TCP    0.0.0.0:7680           0.0.0.0:0              LISTENING       2508
+  TCP    0.0.0.0:8027           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:8995           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:8998           0.0.0.0:0              LISTENING       5284
+  TCP    0.0.0.0:25734          0.0.0.0:0              LISTENING       6872
+  TCP    0.0.0.0:26666          0.0.0.0:0              LISTENING       4892
+  TCP    0.0.0.0:30950          0.0.0.0:0              LISTENING       6052
+  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       932
+  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       840
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       2040
+  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       1660
+  TCP    0.0.0.0:49668          0.0.0.0:0              LISTENING       4048
+  TCP    0.0.0.0:49676          0.0.0.0:0              LISTENING       912
+  TCP    0.0.0.0:49677          0.0.0.0:0              LISTENING       4680
+  TCP    0.0.0.0:50171          0.0.0.0:0              LISTENING       13672
+  TCP    0.0.0.0:61493          0.0.0.0:0              LISTENING       5172
+  TCP    127.0.0.1:5354         0.0.0.0:0              LISTENING       4708
+  TCP    127.0.0.1:5354         127.0.0.1:49671        ESTABLISHED     4708
+  TCP    127.0.0.1:5354         127.0.0.1:49682        ESTABLISHED     4708
+  TCP    127.0.0.1:25734        127.0.0.1:50175        ESTABLISHED     6872
+  TCP    127.0.0.1:27015        0.0.0.0:0              LISTENING       4672
+  TCP    127.0.0.1:49671        127.0.0.1:5354         ESTABLISHED     4672
+  TCP    127.0.0.1:49682        127.0.0.1:5354         ESTABLISHED     4672
+  TCP    127.0.0.1:50173        127.0.0.1:50174        ESTABLISHED     13672
+  TCP    127.0.0.1:50174        127.0.0.1:50173        ESTABLISHED     13672
+  TCP    127.0.0.1:50175        127.0.0.1:25734        ESTABLISHED     13672
+  TCP    127.0.0.1:50220        0.0.0.0:0              LISTENING       13628
+  TCP    127.0.0.1:50220        127.0.0.1:50238        ESTABLISHED     13628
+  TCP    127.0.0.1:50238        127.0.0.1:50220        ESTABLISHED     5388
+  TCP    127.0.0.1:57625        127.0.0.1:65001        ESTABLISHED     5340
+  TCP    127.0.0.1:62447        127.0.0.1:62448        ESTABLISHED     7572
+  TCP    127.0.0.1:62448        127.0.0.1:62447        ESTABLISHED     7572
+  TCP    127.0.0.1:62449        127.0.0.1:62450        ESTABLISHED     7572
+  TCP    127.0.0.1:62450        127.0.0.1:62449        ESTABLISHED     7572
+  TCP    127.0.0.1:62451        127.0.0.1:62452        ESTABLISHED     7572
+  TCP    127.0.0.1:62452        127.0.0.1:62451        ESTABLISHED     7572
+  TCP    127.0.0.1:62461        127.0.0.1:62462        ESTABLISHED     5268
+  TCP    127.0.0.1:62462        127.0.0.1:62461        ESTABLISHED     5268
+  TCP    127.0.0.1:65001        0.0.0.0:0              LISTENING       5340
+  TCP    127.0.0.1:65001        127.0.0.1:57625        ESTABLISHED     5340
+  TCP    192.168.1.57:139       0.0.0.0:0              LISTENING       4
+  TCP    192.168.1.57:62282     20.199.120.85:443      ESTABLISHED     5380
+  TCP    192.168.1.57:62469     2.17.224.25:443        CLOSE_WAIT      7572
+  TCP    192.168.1.57:63637     2.20.24.11:443         CLOSE_WAIT      13796
+  TCP    192.168.1.57:63638     93.184.220.29:80       CLOSE_WAIT      13796
+  TCP    192.168.1.57:64103     93.184.220.29:80       CLOSE_WAIT      12560
+  TCP    192.168.1.57:64106     152.199.21.118:443     CLOSE_WAIT      12560
+  TCP    192.168.1.57:64866     20.54.232.160:443      ESTABLISHED     5556
+  TCP    192.168.1.57:64872     35.186.224.25:443      ESTABLISHED     10808
+  TCP    192.168.1.57:64873     204.79.197.203:443     ESTABLISHED     10292
+  TCP    192.168.192.1:139      0.0.0.0:0              LISTENING       4
+  TCP    192.168.192.1:50171    192.168.192.1:62292    ESTABLISHED     13672
+  TCP    192.168.192.1:62292    192.168.192.1:50171    ESTABLISHED     5284
+  TCP    192.168.227.1:139      0.0.0.0:0              LISTENING       4
+  TCP    192.168.227.1:10000    0.0.0.0:0              LISTENING       5284
+  TCP    192.168.227.1:10001    0.0.0.0:0              LISTENING       5284
+
+
+  Status
+  LISTEN
+  ESTABLISHED
+  CLOSE_WAIT
+  LISTENING
+  ESTAB
+
