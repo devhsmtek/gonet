@@ -8,7 +8,7 @@
 //
 //[State,Local Address:Port,Peer Address:Port]
 //
-//For Windows:
+//For Windows or Mac:
 //
 //netstat -ano -p tcp
 //

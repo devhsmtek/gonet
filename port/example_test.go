@@ -8,5 +8,5 @@ import (
 // TODO
 //
 func Example() {
-	fmt.Println("EXample By Scanner")
+	fmt.Println("Example By Scanner")
 }

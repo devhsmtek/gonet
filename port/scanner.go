@@ -73,7 +73,7 @@ func (s *Scanner) Scan() {
 			s.cb(portStatuses, err)
 		} else {
 			for rI, row := range strings.Split(outb.String(), "\n") {
-				if ((s.isLinux && rI > 0) || (s.isWindows && rI > 3)) && row != "" && len(row) > 0 {
+				if ((s.isLinux && rI > 0) || ((s.isWindows || s.isMac) && rI > 3)) && row != "" && len(row) > 0 {
 					var pRes SStatus
 					i := 0
 					for _, col := range strings.Split(row, " ") {
