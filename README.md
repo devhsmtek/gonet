@@ -10,7 +10,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/husamettinarabaci/gonet"
+	hsmgonet "github.com/husamettinarabaci/gonet"
 )
 ```
 
