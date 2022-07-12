@@ -2,4 +2,7 @@
 //
 // Copyright (c) 2022 Hsm Teknoloji - Hüsamettin ARABACI
 //
+//
+//TODO for package
+//
 package gonet
