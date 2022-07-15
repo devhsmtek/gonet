@@ -9,4 +9,5 @@ import (
 //
 func Example() {
 	fmt.Println("Example By Scanner")
+	//Output: Example By Scanner
 }

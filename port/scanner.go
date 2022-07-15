@@ -7,6 +7,7 @@ import (
 	"runtime"
 	"strings"
 	"sync"
+	"time"
 )
 
 //
@@ -49,9 +50,12 @@ func (s *Scanner) generateCommand() {
 		if s.isLinux {
 			s.command = "ss"
 			s.commandArgs = []string{"-atn"}
-		} else {
+		} else if s.isWindows {
 			s.command = "netstat"
 			s.commandArgs = []string{"-ano", "-p", "tcp"}
+		} else {
+			s.command = "netstat"
+			s.commandArgs = []string{"-an", "-p", "tcp", "-f", "inet"}
 		}
 	} else {
 		s.err = fmt.Errorf("%s is not supported", s.os)
@@ -73,7 +77,7 @@ func (s *Scanner) Scan() {
 			s.cb(portStatuses, err)
 		} else {
 			for rI, row := range strings.Split(outb.String(), "\n") {
-				if ((s.isLinux && rI > 0) || ((s.isWindows || s.isMac) && rI > 3)) && row != "" && len(row) > 0 {
+				if ((s.isLinux && rI > 0) || (s.isWindows && rI > 3) || (s.isMac && rI > 1)) && row != "" && len(row) > 0 {
 					var pRes SStatus
 					i := 0
 					for _, col := range strings.Split(row, " ") {
@@ -81,7 +85,7 @@ func (s *Scanner) Scan() {
 							if s.isLinux {
 								switch i {
 								case 0:
-									pRes.Statu = StatuTypeConvert(col)
+									pRes.SetStatu(col)
 								case 3:
 									sepInd := strings.LastIndex(col, ":")
 									pRes.LocalAddress = col[:sepInd]
@@ -91,10 +95,10 @@ func (s *Scanner) Scan() {
 									pRes.RemoteAddress = col[:sepInd]
 									pRes.RemotePort = col[sepInd+1:]
 								}
-							} else {
+							} else if s.isWindows {
 								switch i {
 								case 3:
-									pRes.Statu = StatuTypeConvert(col)
+									pRes.SetStatu(col)
 								case 1:
 									sepInd := strings.LastIndex(col, ":")
 									pRes.LocalAddress = col[:sepInd]
@@ -104,11 +108,25 @@ func (s *Scanner) Scan() {
 									pRes.RemoteAddress = col[:sepInd]
 									pRes.RemotePort = col[sepInd+1:]
 								}
+							} else {
+								switch i {
+								case 5:
+									pRes.SetStatu(col)
+								case 3:
+									sepInd := strings.LastIndex(col, ".")
+									pRes.LocalAddress = col[:sepInd]
+									pRes.LocalPort = col[sepInd+1:]
+								case 4:
+									sepInd := strings.LastIndex(col, ".")
+									pRes.RemoteAddress = col[:sepInd]
+									pRes.RemotePort = col[sepInd+1:]
+								}
 							}
 							i++
 						}
 
 					}
+					pRes.LastScanTime = time.Now()
 					portStatuses.Statuses = append(portStatuses.Statuses, pRes)
 				}
 			}

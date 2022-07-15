@@ -19,6 +19,7 @@ func TestScanner(t *testing.T) {
 				for _, portStatu := range portStatuses.Statuses {
 					resStr += fmt.Sprintf("Statu: %s - Local Address: %s:%s - Remote Address: %s:%s\n", portStatu.Statu, portStatu.LocalAddress, portStatu.LocalPort, portStatu.RemoteAddress, portStatu.RemotePort)
 				}
+				fmt.Println(resStr)
 			}
 		}
 		var sc Scanner = *NewScanner(cb)

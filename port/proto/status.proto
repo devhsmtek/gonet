@@ -2,6 +2,8 @@ syntax="proto3";
 
 package PbStatus;
 option go_package = ".";
+//import "google/protobuf/timestamp.proto";
+
 
 service SvcStatus {
     rpc SendStatus(PbStatus) returns (PbResp) {}
@@ -14,6 +16,10 @@ message PbStatus {
 	string local_port     =3;
 	string remote_address =4;
 	string remote_port    =5;
+    string opening_time =6;
+    string closing_time=7;
+    string last_scan_time=8;
+    bool isopen=9;
 }
 
 message PbStatuses {
